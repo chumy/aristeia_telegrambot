@@ -111,15 +111,14 @@ class TelegramController extends Controller
     
     public function setWebhook()
     {
-        $url = 'https://7f5c1068.ngrok.io/845501750:AAGoWNC6_UKsZtKq6WIzZZ58iRWt_eTO9p4/webhook';
-        $url1 = 'https://www.chumy.net/aristeia/bot/845501750:AAGoWNC6_UKsZtKq6WIzZZ58iRWt_eTO9p4/webhook';
+
+        $url1 = 'https://www.chumy.net/aristeia/bot/'.config(BOT_TELEGRAM).'/webhook';
 
         $response = Telegram::setWebhook([
                 'url' => $url,
                 ]);
 
-        //https://api.telegram.org/bot70360V526:ADHMSEH1eoPfd3YSCppzYdL7PnKYxtk5k10/setWebhook?url=https://904db06e.ngrok.io/update.php
-                
+                 
         Log::info('Setting up webhook ');
                     
         //dd($response);
@@ -130,13 +129,12 @@ class TelegramController extends Controller
     {
         $response = Telegram::removeWebhook();
 
-        $url = "https://".$text.".ngrok.io/845501750:AAGoWNC6_UKsZtKq6WIzZZ58iRWt_eTO9p4/webhook";
+        $url = "https://".$text.".ngrok.io/'.config(BOT_TELEGRAM).'/webhook";
         
         $response = Telegram::setWebhook([
                 'url' => $url,
                 ]);
 
-        //https://api.telegram.org/bot70360V526:ADHMSEH1eoPfd3YSCppzYdL7PnKYxtk5k10/setWebhook?url=https://904db06e.ngrok.io/update.php
                 
         Log::info('Setting up webhook ');
                     
